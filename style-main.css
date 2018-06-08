@@ -295,6 +295,8 @@ CSS Grid layout for wider screens, when browser supports grid:
 	@media screen and (min-width: 27em) {
 
 		.site {
+			position: relative;
+			left: -14em;
 			overflow-x: hidden;
 			display: grid;
 			grid-template-columns: 15em calc(100% - 1em);
