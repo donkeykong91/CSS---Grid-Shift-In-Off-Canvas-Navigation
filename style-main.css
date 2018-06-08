@@ -307,6 +307,10 @@ CSS Grid layout for wider screens, when browser supports grid:
 				"nav footer";
 		}
 
+		.reveal {
+			left: 0;
+		}
+
 		.masthead {
 			grid-area: header;
 		}
@@ -325,10 +329,6 @@ CSS Grid layout for wider screens, when browser supports grid:
 
 		.main-nav {
 			grid-area: nav;
-		}
-
-		.reveal .main-nav {
-			left: 0;
 		}
 
 		.main-nav ul {
