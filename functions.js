@@ -8,6 +8,7 @@ let screenReaderText = document.querySelector('.trigger .screen-reader-text');
 // Toggle reveal class on body element, set aria-expanded and screen reader text on TRIGGER:
 function revealMenu() {
     SITE.classList.toggle('reveal');
+    REVEAL.classList.add('open');
     TRIGGER.getAttribute('aria-expanded') == 'false' ? TRIGGER.setAttribute('aria-expanded', true) : TRIGGER.setAttribute('aria-expanded', false);
     screenReaderText.innerHTML == 'Reveal menu' ? screenReaderText.innerHTML = 'Hide menu' : screenReaderText.innerHTML = 'Reveal menu';
 }
@@ -19,6 +20,12 @@ function catchFocus() {
 	} else {
 		return;
 	}
+}
+
+function removeMenu() {
+  if (TRIGGER.getAttribute('aria-expanded') == 'false') {
+    REVEAL.classList.remove('open');
+  }
 }
 
 // Hide nav area when touch or click happens elsewhere:
@@ -37,3 +44,5 @@ SITE.addEventListener('focusin', catchFocus, true);
 
 // Listen for clicks:
 SITE.addEventListener('click', function(e) { clickTarget(e); }, true);
+
+SITE.addEventListener('transitionend', removeMenu, false);
